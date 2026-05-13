@@ -1,0 +1,46 @@
+// article.http
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzczMTQ2LCJleHAiOjE3NjAzNzM3NDZ9.F-ExjFHZ4EYDGMmeR6gEFOlyQUzlci3Ay5rO_gB0heU
+@baseUrl = http://localhost:3000
+
+### ========== PUBLIC ==========
+
+### List articles (PUBLIC)
+GET {{baseUrl}}/api/article/public
+
+### Get article by ID (PUBLIC)
+GET {{baseUrl}}/api/article/public/1
+
+### Get articles by blog ID (PUBLIC)
+GET {{baseUrl}}/api/article/public/blog/1
+
+### Create article (PUBLIC)
+POST {{baseUrl}}/api/article/public
+Content-Type: application/json
+
+{
+  "blogId": 1,
+  "title": "Introduction ",
+  "content": "Node.js is a JavaScript runtime environment used to build scalable backend applications.",
+  "publicationDate": "2026-05-13",
+  "views": 0,
+  "status": "ACTIVE"
+}
+
+### Update article (PUBLIC)
+PATCH {{baseUrl}}/api/article/public/1
+Content-Type: application/json
+
+{
+  "blogId": 1,
+  "title": "Introduction to Node.js and Express",
+  "content": "Node.js and Express are commonly used together to create REST APIs and backend services.",
+  "publicationDate": "2026-05-13",
+  "views": 15,
+  "status": "ACTIVE"
+}
+
+### Hard delete article (PUBLIC)
+DELETE {{baseUrl}}/api/article/public/1
+
+### Soft delete article (PUBLIC)
+DELETE {{baseUrl}}/api/article/public/1/logic

@@ -1,0 +1,37 @@
+// blog.http
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzczMTQ2LCJleHAiOjE3NjAzNzM3NDZ9.F-ExjFHZ4EYDGMmeR6gEFOlyQUzlci3Ay5rO_gB0heU
+@baseUrl = http://localhost:3000
+
+### ========== PUBLIC ==========
+
+### List blogs (PUBLIC)
+GET {{baseUrl}}/api/blog/public
+
+### Get blog by ID (PUBLIC)
+GET {{baseUrl}}/api/blog/public/1
+
+### Create blog (PUBLIC)
+POST {{baseUrl}}/api/blog/public
+Content-Type: application/json
+
+{
+  "name": "Technology Blog",
+  "creationDate": "2026-05-13",
+  "status": "ACTIVE"
+}
+
+### Update blog (PUBLIC)
+PATCH {{baseUrl}}/api/blog/public/1
+Content-Type: application/json
+
+{
+  "name": "Software Engineering Blog",
+  "creationDate": "2026-05-13",
+  "status": "ACTIVE"
+}
+
+### Hard delete blog (PUBLIC)
+DELETE {{baseUrl}}/api/blog/public/1
+
+### Soft delete blog (PUBLIC)
+DELETE {{baseUrl}}/api/blog/public/1/logic
